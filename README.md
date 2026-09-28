@@ -5,6 +5,10 @@
 [![Platform: Web](https://img.shields.io/badge/Platform-Web%20%7C%20Offline%20Ready-brightgreen.svg)](#)
 [![Questions: 193](https://img.shields.io/badge/Questions-193%20Verified%20Q%26A-orange.svg)](#)
 [![Zero Dependency](https://img.shields.io/badge/Dependencies-Zero%20(Pure%20Vanilla%20JS)-success.svg)](#)
+[![Online Quiz](https://img.shields.io/badge/Online%20Quiz-Live%20Demo-brightgreen?style=for-the-badge&logo=github)](https://ncuim.github.io/2026self-shield-secexam-notebook/)
+
+> 🌐 **線上免安裝立即作答網址**：**[https://ncuim.github.io/2026self-shield-secexam-notebook/](https://ncuim.github.io/2026self-shield-secexam-notebook/)**  
+> 💡 *手機、平板、電腦打開瀏覽器即可直接答題！支援刷題練習、90/180分鐘模擬考、錯題本自動收錄與個人訂正筆記。*
 
 專為資安從業人員、各類資安證照備考者、全國技能競賽（Cyber Security）與金盾獎資安競賽選手打造的**雙卷全功能離線互動刷題系統與專屬錯題記事本**。
 
