@@ -1,0 +1,77 @@
+[
+  {
+    "EventID": 4625,
+    "TimeCreated": "2026-07-28T02:15:22.000Z",
+    "Provider": "Microsoft-Windows-Security-Auditing",
+    "Channel": "Security",
+    "Computer": "SEC-SRV01.corp.internal",
+    "Data": {
+      "TargetUserName": "Administrator",
+      "WorkstationName": "WORKSTATION-01",
+      "IpAddress": "192.168.50.250",
+      "IpPort": "49152",
+      "LogonType": 3,
+      "Status": "0xC000006D",
+      "SubStatus": "0xC000006A",
+      "FailureReason": "Unknown user name or bad password"
+    }
+  },
+  {
+    "EventID": 4624,
+    "TimeCreated": "2026-07-28T02:28:45.000Z",
+    "Provider": "Microsoft-Windows-Security-Auditing",
+    "Channel": "Security",
+    "Computer": "SEC-SRV01.corp.internal",
+    "Data": {
+      "TargetUserName": "svc_backup",
+      "TargetDomainName": "CORP",
+      "IpAddress": "192.168.50.250",
+      "IpPort": "49201",
+      "LogonType": 3,
+      "AuthenticationPackageName": "NTLM",
+      "LogonProcessName": "NtLmSsp"
+    }
+  },
+  {
+    "EventID": 7045,
+    "TimeCreated": "2026-07-28T02:50:30.000Z",
+    "Provider": "Service Control Manager",
+    "Channel": "System",
+    "Computer": "SEC-SRV01.corp.internal",
+    "Data": {
+      "ServiceName": "WindowsUpdateAssist",
+      "ImagePath": "C:\\Users\\Public\\svch0st.exe -k netsvcs",
+      "ServiceType": "user mode service",
+      "StartType": "auto start",
+      "AccountName": "LocalSystem"
+    }
+  },
+  {
+    "EventID": 4688,
+    "TimeCreated": "2026-07-28T02:45:11.000Z",
+    "Provider": "Microsoft-Windows-Security-Auditing",
+    "Channel": "Security",
+    "Computer": "SEC-SRV01.corp.internal",
+    "Data": {
+      "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe -nop -w hidden -enc JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0...",
+      "ParentProcessName": "C:\\Windows\\System32\\svchost.exe",
+      "SubjectUserName": "svc_backup"
+    }
+  },
+  {
+    "EventID": 10,
+    "TimeCreated": "2026-07-28T02:52:10.000Z",
+    "Provider": "Microsoft-Windows-Sysmon",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "Computer": "SEC-SRV01.corp.internal",
+    "Data": {
+      "SourceImage": "C:\\Users\\Public\\svch0st.exe",
+      "SourceProcessId": "4100",
+      "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+      "TargetProcessId": "624",
+      "GrantedAccess": "0x1010",
+      "CallTrace": "C:\\Windows\\SYSTEM32\\ntdll.dll+9d424|C:\\Windows\\System32\\KERNELBASE.dll+2745d"
+    }
+  }
+]
