@@ -9,7 +9,7 @@ urls = {
     'mock_exam_b_solutions.md': 'https://raw.githubusercontent.com/Youchenjiang/sec-compendium/main/security/practice/exams/mock_exam_b_lab_solutions.md'
 }
 
-data_dir = os.path.join(os.path.dirname(__file__), 'raw_data')
+data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'raw'))
 os.makedirs(data_dir, exist_ok=True)
 
 for filename, url in urls.items():

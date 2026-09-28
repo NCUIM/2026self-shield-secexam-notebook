@@ -72,14 +72,14 @@
 本專案為**零依賴純前端應用（Pure Vanilla HTML/CSS/JS）**，無需安裝 Node.js 或建置編譯環境，100% 離線可用。
 
 ### 方式一：直接在瀏覽器開啟（最推薦）
-雙擊開啟專案根目錄下的任一檔案即可立即作答：
-- **`index.html`**：完整功能版（分離式結構）
-- **`sec_quiz_notebook_standalone.html`**：**單一檔案獨立免安裝版**（所有樣式、資料庫與邏輯已濃縮於單檔，僅約 418 KB，極適合隨身攜帶或傳送）
+雙擊開啟專案檔案即可立即作答：
+- **`index.html`**：根目錄主程式入口（分離式架構，推薦日常使用）
+- **`dist/sec_quiz_notebook_standalone.html`**：**單一檔案獨立免安裝版**（所有樣式、資料庫與邏輯濃縮於單檔，僅約 418 KB，極適合隨身碟攜帶或直接私訊傳送）
 
 ### 方式二：本機 Python 伺服器啟動
 在終端機中執行內附腳本：
 ```bash
-python start_server.py
+python tools/start_server.py
 ```
 伺服器將在 `http://localhost:8080/index.html` 啟動並自動為您彈出瀏覽器。
 
@@ -102,35 +102,46 @@ python start_server.py
 
 ---
 
-## 📂 專案檔案結構清單
+## 📂 專案檔案結構清單（精簡收納）
 
 ```text
 2026self-shield-secexam-notebook/
-├── index.html                     # 主程式入口（現代化雙卷問答與錯題記事本介面）
-├── style.css                      # UI 樣式表（深色/淺色主題、響應式排版）
-├── app.js                         # 核心邏輯（答題比對、錯題自動收錄、筆記自動保存）
-├── data.js                        # 打包後題庫資料庫（含 A/B 卷 193 題與 20 組實戰情境證據）
-├── exam_data.json                 # 標準 JSON 格式題庫與證據資料
-├── sec_quiz_notebook_standalone.html # 單檔免安裝獨立版（大小僅約 418 KB，開箱即用）
-├── start_server.py                # 一鍵本地 Web 伺服器啟動腳本
-├── verify_answers.py              # 全題庫答案 100% 交叉自動校驗腳本
+├── index.html                     # 根目錄唯一 Web 主程式入口
 ├── README.md                      # 專案詳細說明與架構手冊
+├── .gitignore                     # Git 忽略設定
+│
+├── assets/                        # 前端靜態資源
+│   ├── css/
+│   │   └── style.css              # UI 樣式表（深色/淺色主題、響應式排版）
+│   └── js/
+│       ├── app.js                 # 核心邏輯（答題比對、錯題自動收錄、筆記自動保存）
+│       └── data.js                # 題庫資料庫（含 A/B 卷 193 題與 20 組實戰情境證據）
+│
+├── data/                          # 題庫資料目錄
+│   ├── exam_data.json             # 標準 JSON 格式題庫與證據資料
+│   └── raw/                       # 原始 Markdown 試題與官方解題手冊
+│       ├── mock_exam_a_questions.md
+│       ├── mock_exam_a_solutions.md
+│       ├── mock_exam_b_questions.md
+│       └── mock_exam_b_solutions.md
+│
+├── dist/                          # 獨立發行檔
+│   └── sec_quiz_notebook_standalone.html # 單檔免安裝獨立版（418 KB 開箱即用）
+│
 ├── evidence/                      # 實體真題跡證標本庫
 │   ├── pcap/                      # DNS 外洩與 Web 攻擊 PCAP 封包
 │   ├── evtx/                      # Windows 安全日誌 JSON 樣本
 │   ├── memory/                    # JVM 堆疊記憶體傾印標本
 │   └── README.md                  # 跡證檔案清單與 SHA-256 校驗指引
-├── raw_data/                      # 原始 Markdown 試題與官方解題手冊
-│   ├── mock_exam_a_questions.md
-│   ├── mock_exam_a_solutions.md
-│   ├── mock_exam_b_questions.md
-│   └── mock_exam_b_solutions.md
-└── scripts/                       # 輔助建置與處理腳本
+│
+└── tools/                         # 輔助工具與維護腳本
+    ├── start_server.py            # 本機 Web 伺服器啟動器
+    ├── verify_answers.py          # 全題庫答案 100% 交叉自動校驗腳本
     ├── bundle_single_file.py      # 單檔 HTML 打包腳本
     ├── check_evidence_urls.py     # 遠端跡證校驗腳本
     ├── download_data.py           # 原始題庫拉取腳本
     ├── download_evidence.py       # 實體跡證檔案下載腳本
-    └── parse_data.py              # 題庫剖析與結構化腳本
+    └── parse_data.py              # 題庫剖析與結構化轉換工具
 ```
 
 ---

@@ -228,10 +228,11 @@ def parse_exam_b(q_file, s_file):
     return questions, evidence_blocks
 
 def main():
-    q_a_file = 'raw_data/mock_exam_a_questions.md'
-    s_a_file = 'raw_data/mock_exam_a_solutions.md'
-    q_b_file = 'raw_data/mock_exam_b_questions.md'
-    s_b_file = 'raw_data/mock_exam_b_solutions.md'
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    q_a_file = os.path.join(base_dir, 'data', 'raw', 'mock_exam_a_questions.md')
+    s_a_file = os.path.join(base_dir, 'data', 'raw', 'mock_exam_a_solutions.md')
+    q_b_file = os.path.join(base_dir, 'data', 'raw', 'mock_exam_b_questions.md')
+    s_b_file = os.path.join(base_dir, 'data', 'raw', 'mock_exam_b_solutions.md')
 
     exam_a = parse_exam_a(q_a_file, s_a_file)
     exam_b, evidences = parse_exam_b(q_b_file, s_b_file)
@@ -268,15 +269,17 @@ def main():
     }
 
     # Save JSON
-    with open('exam_data.json', 'w', encoding='utf-8') as f:
+    json_path = os.path.join(base_dir, 'data', 'exam_data.json')
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
     # Save as JS object for zero-config file:// local opening
+    js_path = os.path.join(base_dir, 'assets', 'js', 'data.js')
     js_content = "window.EXAM_DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n"
-    with open('data.js', 'w', encoding='utf-8') as f:
+    with open(js_path, 'w', encoding='utf-8') as f:
         f.write(js_content)
 
-    print("Success: Generated exam_data.json and data.js!")
+    print(f"Success: Generated {json_path} and {js_path}!")
     print(f"Exam A: {len(exam_a)} questions.")
     print(f"Exam B: {len(exam_b)} questions.")
     print(f"Evidence sections: {len(evidences)} sections.")

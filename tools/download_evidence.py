@@ -39,7 +39,7 @@ def sha256_file(filepath):
     return h.hexdigest()
 
 def main():
-    target_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'evidence')
+    target_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'evidence'))
     os.makedirs(target_dir, exist_ok=True)
     print("=" * 60)
     print("  下載全真模擬測驗 B 卷實體跡證檔案標本庫")

@@ -10,16 +10,22 @@ def verify():
     print("開始全面檢驗 A 卷 (100題) 與 B 卷 (93題) 答案正確性與一致性")
     print("=" * 60)
 
+    import os
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    data_js_path = os.path.join(base_dir, 'assets', 'js', 'data.js')
+    s_a_path = os.path.join(base_dir, 'data', 'raw', 'mock_exam_a_solutions.md')
+    s_b_path = os.path.join(base_dir, 'data', 'raw', 'mock_exam_b_solutions.md')
+
     # Load data.js
-    with open('data.js', 'r', encoding='utf-8') as f:
+    with open(data_js_path, 'r', encoding='utf-8') as f:
         js = f.read()
     prefix = 'window.EXAM_DATA = '
     data = json.loads(js[len(prefix):].rstrip(';\n '))
 
     # Load raw markdown files
-    with open('raw_data/mock_exam_a_solutions.md', 'r', encoding='utf-8') as f:
+    with open(s_a_path, 'r', encoding='utf-8') as f:
         s_a = f.read()
-    with open('raw_data/mock_exam_b_solutions.md', 'r', encoding='utf-8') as f:
+    with open(s_b_path, 'r', encoding='utf-8') as f:
         s_b = f.read()
 
     # --- 1. Verify Exam A against Quick Answer Key table ---
